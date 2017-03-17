@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Zebork&#39;s Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-03-17T07:42:05.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Zebork</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>出事儿啦</title>
+    <link href="http://yoursite.com/2017/03/17/Beginning/"/>
+    <id>http://yoursite.com/2017/03/17/Beginning/</id>
+    <published>2017-03-17T05:46:17.000Z</published>
+    <updated>2017-03-17T07:42:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前的博客狗带了，备份的不是源文件，重做一份太麻烦。</p>
+<p>新的开始。。</p>
+<p><img src="/img/go_die.jpg" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前的博客狗带了，备份的不是源文件，重做一份太麻烦。&lt;/p&gt;
+&lt;p&gt;新的开始。。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/go_die.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="扯淡" scheme="http://yoursite.com/categories/%E6%89%AF%E6%B7%A1/"/>
+    
+    
+      <category term="扯淡" scheme="http://yoursite.com/tags/%E6%89%AF%E6%B7%A1/"/>
+    
+  </entry>
+  
+</feed>
