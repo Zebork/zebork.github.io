@@ -20,7 +20,7 @@
 <meta name="verify" content=all />
     <!--Title-->
 
-<title>出事儿啦 | Zebork&#39;s Blog</title>
+<title>C# 委托和事件 | Zebork&#39;s Blog</title>
 
 <link rel="alternate" href="/atom.xml" title="Zebork&#39;s Blog" type="application/atom+xml">
 
@@ -136,9 +136,9 @@
     <article id="post">
         <div id="post-header">
 
-            <h1 id="出事儿啦">
+            <h1 id="C# 委托和事件">
                 
-                出事儿啦
+                C# 委托和事件
                 
             </h1>
             <div class="article-meta">
@@ -146,7 +146,7 @@
     
     <span class="categories-meta fa-wrap">
             <i class="fa fa-folder-open-o"></i>
-        <span>扯淡</span>
+        <span>Programing</span>
     </span>
     
     
@@ -154,7 +154,7 @@
          <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            扯淡
+            C#
             
         </span>
     </span>
@@ -162,12 +162,12 @@
     
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
-        <span class="date-meta ">2017/03/17</span>
+        <span class="date-meta ">2017/05/14</span>
     </span>
     
     <span  class=" fa-wrap">
         <i class="fa fa-comment-o"></i>
-        <span id="comments-count" class="comments-meta disqus-comment-count ds-thread-count comments" data-disqus-url="http://yoursite.com/2017/03/17/Beginning/" data-thread-key="/2017/03/17/Beginning/"
+        <span id="comments-count" class="comments-meta disqus-comment-count ds-thread-count comments" data-disqus-url="http://yoursite.com/2017/05/14/2017/CSharp_2017_05_14/" data-thread-key="/2017/05/14/2017/CSharp_2017_05_14/"
            data-count-type="comments"></span>
     </span>
     
@@ -180,9 +180,18 @@
         </div>
         
         <div id="post-body">
-            <p>之前的博客狗带了，备份的不是源文件，重做一份太麻烦。</p>
-<p>新的开始。。</p>
-<p><img src="/img/go_die.jpg" alt=""></p>
+            <p><img src="/img/2017/05/c-sharp.png" alt=""></p>
+<p>C# 中的委托和事件是理解这门语言的一道坎，这回记一下。本文能多简略就多简略，如果被想真正学习这方面知识不小心被搜索到，请移步其他大神的博客。</p>
+<h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><p>并没有脱离开事件写过委托，但是委托确实是可以不和事件一起用的。委托是针对方法的一种归类方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public delegate void PlayDelegate(string name);</div><div class="line"></div><div class="line">private void PlayBoy(string name) &#123;</div><div class="line">  Console.WriteLine(&quot;Hey &quot;+ name + &quot;, play with me?&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">private void PlayGirl(String name) &#123;</div><div class="line">  Console.WriteLine(&quot;Hey &quot;+ name + &quot;, play with me?&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">public void Play(string name, PlayDelegate playMethod) &#123;</div><div class="line">  playMethod(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>类似于python中的函数名称作为参数传递，只不过更为标准化。</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>不想搞得太复杂，直接上干货，经典的例子，烧水。</p>
+<h3 id="Heater类："><a href="#Heater类：" class="headerlink" title="Heater类："></a>Heater类：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public delegate void BoilHandler(object sender, BoilEventArgs e); </div><div class="line">public event BoilHandler BoilEvent;</div><div class="line">public class BoilEventArgs : EventArgs</div><div class="line">&#123;</div><div class="line">    public int temperature &#123; get; set; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上的代码一般是在事件发出对象的内部写。使用public暴露事件。</p>
+<h3 id="Alarm类"><a href="#Alarm类" class="headerlink" title="Alarm类"></a>Alarm类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public void MakeAlert(object sender, EventArgs e) &#123;</div><div class="line">  ~~~</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="program"><a href="#program" class="headerlink" title="program"></a>program</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">heater.BoilEvent += MakeAlert;</div></pre></td></tr></table></figure>
+<p>实际上如果<code>using system;</code>之后，可以用System命名空间下的EventHandler进行操作，看一下<a href="https://msdn.microsoft.com/en-us/library/system.eventhandler" target="_blank" rel="external">MSDN</a>吧，比较详细。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>发送者做好委托和事件的设定，包装好参数，事件定义为public，外部暴露后将接收方法注册到事件上，参数与委托中定义的一致。</p>
 
         </div>
         <div id="post-footer">
@@ -196,20 +205,20 @@
                     
                     <a href="/about.html">Zebork</a>
                 </li>
-                <li>Published Date: <span>2017-03-17  01:46:17</span></li>
+                <li>Published Date: <span>2017-05-14  09:57:43</span></li>
                 
-                <li>Updated Date: <span>2017-03-19  02:33:30</span></li>
+                <li>Updated Date: <span>2017-05-14  11:13:25</span></li>
                 
                 <li class="post-category">
                     Categories:
                     
-                    <a href="/categories/扯淡/">扯淡</a>
+                    <a href="/categories/Programing/">Programing</a>
                     
                 </li>
                 <li class="post-tags">
                     Tags:
                     
-                    <a href="/tags/扯淡/">扯淡</a>
+                    <a href="/tags/C/">C#</a>
                     
                 </li>
                 
@@ -228,8 +237,8 @@
     </article>
     <div class="article-nav">
         
-        <a href="/2017/05/14/2017/CSharp_2017_05_14/" class="pre-post fa fa-caret-left">C# 委托和事件</a>
         
+        <a href="/2017/03/17/Beginning/" class="next-post fa">出事儿啦</a>
         
     </div>
     
@@ -291,7 +300,7 @@
     </div>
 </div>
 
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#委托"><span class="toc-number">1.</span> <span class="toc-text">委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件"><span class="toc-number">2.</span> <span class="toc-text">事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Heater类："><span class="toc-number">2.1.</span> <span class="toc-text">Heater类：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alarm类"><span class="toc-number">2.2.</span> <span class="toc-text">Alarm类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#program"><span class="toc-number">2.3.</span> <span class="toc-text">program</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 
 
 

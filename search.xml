@@ -3,6 +3,38 @@
     
     
     <entry>
+        <title><![CDATA[C# 委托和事件]]></title>
+        <url>http://yoursite.com/2017/05/14/2017/CSharp_2017_05_14/</url>
+        <content type="html"><![CDATA[<p><img src="/img/2017/05/c-sharp.png" alt=""></p>
+<p>C# 中的委托和事件是理解这门语言的一道坎，这回记一下。本文能多简略就多简略，如果被想真正学习这方面知识不小心被搜索到，请移步其他大神的博客。</p>
+<h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><p>并没有脱离开事件写过委托，但是委托确实是可以不和事件一起用的。委托是针对方法的一种归类方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public delegate void PlayDelegate(string name);</div><div class="line"></div><div class="line">private void PlayBoy(string name) &#123;</div><div class="line">  Console.WriteLine(&quot;Hey &quot;+ name + &quot;, play with me?&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">private void PlayGirl(String name) &#123;</div><div class="line">  Console.WriteLine(&quot;Hey &quot;+ name + &quot;, play with me?&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">public void Play(string name, PlayDelegate playMethod) &#123;</div><div class="line">  playMethod(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>类似于python中的函数名称作为参数传递，只不过更为标准化。</p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>不想搞得太复杂，直接上干货，经典的例子，烧水。</p>
+<h3 id="Heater类："><a href="#Heater类：" class="headerlink" title="Heater类："></a>Heater类：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public delegate void BoilHandler(object sender, BoilEventArgs e); </div><div class="line">public event BoilHandler BoilEvent;</div><div class="line">public class BoilEventArgs : EventArgs</div><div class="line">&#123;</div><div class="line">    public int temperature &#123; get; set; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上的代码一般是在事件发出对象的内部写。使用public暴露事件。</p>
+<h3 id="Alarm类"><a href="#Alarm类" class="headerlink" title="Alarm类"></a>Alarm类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public void MakeAlert(object sender, EventArgs e) &#123;</div><div class="line">  ~~~</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="program"><a href="#program" class="headerlink" title="program"></a>program</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">heater.BoilEvent += MakeAlert;</div></pre></td></tr></table></figure>
+<p>实际上如果<code>using system;</code>之后，可以用System命名空间下的EventHandler进行操作，看一下<a href="https://msdn.microsoft.com/en-us/library/system.eventhandler" target="_blank" rel="external">MSDN</a>吧，比较详细。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>发送者做好委托和事件的设定，包装好参数，事件定义为public，外部暴露后将接收方法注册到事件上，参数与委托中定义的一致。</p>
+]]></content>
+        
+        <categories>
+            
+            <category> Programing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> C# </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
         <title><![CDATA[出事儿啦]]></title>
         <url>http://yoursite.com/2017/03/17/Beginning/</url>
         <content type="html"><![CDATA[<p>之前的博客狗带了，备份的不是源文件，重做一份太麻烦。</p>
