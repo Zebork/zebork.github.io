@@ -1,0 +1,397 @@
+<!doctype html>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    
+    
+    <!--Simple SEO-->
+
+
+<meta name="robots" content=all />
+<meta name="google" content=all />
+<meta name="googlebot" content=all />
+<meta name="verify" content=all />
+    <!--Title-->
+
+<title>vSphere + pfSense 虚拟化服务器 | Zebork&#39;s Blog</title>
+
+<link rel="alternate" href="/atom.xml" title="Zebork&#39;s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/pages/post.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/thirdParty/highlight/github.css">
+    <!--script-->
+
+
+
+
+
+    
+    
+</head>
+
+<body>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<style>
+    header{ top: 71px; position: absolute!important;}
+    #container{padding-top: 151px!important;}
+</style>
+<div style="position:fixed;z-index:9999;left:0;top:0;width:100%;height:70px;background-color:#e0e0e0;color:#396CA5;border-bottom:1px solid #cecece;text-align:center;line-height:70px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<div id="wrap">
+    <header  style="position: absolute;" >
+    <div id="site-meta">
+        <a href="/" id="logo">
+            <h1 class="title">Zebork&#39;s Blog</h1>
+        </a>
+        
+    </div>
+    <ul id="nav">
+        
+            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+        
+            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS</a></li>
+        
+        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>搜索</a></li>
+    </ul>
+</header>
+
+    <div id="container">
+        
+<ul id="sidebar">
+    
+    
+    
+    
+<li class="widget widget-normal category">
+    <h3 class="fa fa-th widget-title">分类</h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Programing/"><i class="fa" aria-hidden="true">Programing</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/扯淡/"><i class="fa" aria-hidden="true">扯淡</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/无聊折腾/"><i class="fa" aria-hidden="true">无聊折腾</i></a><span class="category-list-count">2</span></li></ul>
+</li>
+
+
+    
+    
+<li class="widget widget-normal archive">
+  <h3 class="fa fa-archive widget-title">归档</h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/"><i class="fa" aria-hidden="true">August 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/"><i class="fa" aria-hidden="true">May 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/"><i class="fa" aria-hidden="true">March 2017</i></a><span class="archive-list-count">2</span></li></ul>
+</li>
+
+
+    
+    
+    
+    
+<li class="widget widget-normal tags">
+  <h3 class="fa fa-tags widget-title">标签云</h3>
+  <div class="tagcloud-content">
+    
+      <a href="/tags/扯淡/" style="font-size: 0.14rem; color: #69c">扯淡</a> <a href="/tags/C/" style="font-size: 0.14rem; color: #69c">C#</a> <a href="/tags/Seafile/" style="font-size: 0.14rem; color: #69c">Seafile</a> <a href="/tags/vSphere-pfSense/" style="font-size: 0.14rem; color: #69c">vSphere pfSense</a>
+  </div>
+</li>
+
+    
+    
+<li class="widget widget-normal friends-link">
+    <h3 class="fa fa-globe widget-title">友链</h3><br/>
+
+    
+        <a href="http://sh3ll.me" class="fa" target="_blank">Chu</a>
+
+    
+        <a href="https://www.leavesongs.com" class="fa" target="_blank">PHITHON</a>
+
+    
+        <a href="https://songcoming.github.io" class="fa" target="_blank">Horizon</a>
+
+    
+        <a href="http://www.xdsec.club" class="fa" target="_blank">xdsec</a>
+
+    
+
+</li>
+
+    
+</ul>
+
+
+        <div id="main">
+    <article id="post">
+        <div id="post-header">
+
+            <h1 id="vSphere + pfSense 虚拟化服务器">
+                
+                vSphere + pfSense 虚拟化服务器
+                
+            </h1>
+            <div class="article-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+        <span>无聊折腾</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+         <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            vSphere pfSense
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta ">2017/08/31</span>
+    </span>
+    
+    <span  class=" fa-wrap">
+        <i class="fa fa-comment-o"></i>
+        <span id="comments-count" class="comments-meta disqus-comment-count ds-thread-count comments" data-disqus-url="http://yoursite.com/2017/08/31/2017/vsphere_pfsense_2017-08-31/" data-thread-key="/2017/08/31/2017/vsphere_pfsense_2017-08-31/"
+           data-count-type="comments"></span>
+    </span>
+    
+    
+    
+</div>
+
+            
+            
+        </div>
+        
+        <div id="post-body">
+            <h2 id="vSphere-ESXi"><a href="#vSphere-ESXi" class="headerlink" title="vSphere ESXi"></a>vSphere ESXi</h2><p><a href="https://www.vmware.com/products/esxi-and-esx.html" target="_blank" rel="external">vSphere ESXi</a>是VMware公司的服务器系统，老版本的vSphere ESX是基于Red Hat Linux的服务器控制平台，而新版本的ESXi直接在VMkernel上运行，一个vSphere ESXi 6.0.0系统的镜像大小缩小为375MB左右。</p>
+<p>为服务器安装vSphere ESXi系统时可以采用平时装机常用烧USB的方式，不过前提是对服务器比较熟悉，如果是新服务器还需要配置虚拟存储器，如果插了很多块硬盘可能会有分区等操作。</p>
+<p>另外，U盘启动之前，启动模式要调成EFI模式，不能用BIOS模式，否则会出现坑，坑长这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Loading /tboot.b00</div><div class="line">Loading /b.b00</div><div class="line">Loading /useropts.gz</div><div class="line">Loading /k.b00</div><div class="line">Loading /a.b00</div><div class="line">Loading /ata-pata.v00</div><div class="line">Loading /ata-pata.v01</div><div class="line">Loading /ata-pata.v02</div><div class="line">Loading /ata-pata.v03</div><div class="line">Loading /ata-pata.v04</div><div class="line">Loading /ata-pata.v05</div><div class="line">Error loading /ata-pata.v05</div><div class="line">Fatal error: 6 (Buffer too small)</div></pre></td></tr></table></figure>
+<p>坑跳过去基本就没事了。</p>
+<p><img src="/img/2017/08/vsphere/11.jpg" alt=""></p>
+<p>如果是接到家里路由器上的话，给服务器配个静态IP地址，然后用客户端连接就可以了。客户端和服务器之间通过https进行通信，不过ESXi的一个非常坑爹的特点是不支持NAT，只有类似于我们在VMware Workstation里边的桥接模式，但是很多时候我们有这方面的需求。</p>
+<p>当然了，如果是在家连个路由器用的话，大可不必折腾后边的pfSense软路由了。虚拟机网络直接桥接，无非是路由器多分配几个IP地址而已。</p>
+<h2 id="pfSense软路由"><a href="#pfSense软路由" class="headerlink" title="pfSense软路由"></a>pfSense软路由</h2><p>本次实验环境搭建的情景是这样的：一台服务器有N个虚拟机需要联网，但是IP地址只有两个。</p>
+<p>其实也可以只有一个IP地址，将pfSense作为路由器，这样的方式一般在自己家里和学校的实验室比较常见，只有一个PPPOE账号，也就只有一个IP地址，或者教育网内的网口，不允许申请多个IP的那种。个人觉得这种方式的重量级，虽然比起买个小型路由器大了很多，但是在N人共用一个路由器，需要很大NAT转发能力的情况下，用服务器取代小型家用路由器，也是一个不错的选择（经费足够的情况下）。毕竟服务器的运算速度和内存是嵌入式设备不能比的。</p>
+<p>不过一个IP地址，在刚才的情况系可能还是需要外接一个WIFI无线网卡（否则网线不够插的啊）。</p>
+<p>其他的情景应该也有很多吧，比如作为大一点的网关什么的，我猜的。。</p>
+<p>没试过只有一个IP地址的，就不多说了，两个IP地址就好整多了，假设只有两个ip地址<code>10.10.10.10</code>和<code>10.10.10.11</code>，配置好后大概的结构是这样的：</p>
+<p>服务器IP地址 ：<code>10.10.10.10</code></p>
+<p>pfSense WAN:  <code>10.10.10.11</code></p>
+<p>pfSense LAN : <code>192.168.1.1</code></p>
+<p><a href="https://www.pfsense.org/" target="_blank" rel="external">pfSense</a>是一款基于FreeBSD做的操作系统，可以安装在物理机或者虚拟机上，提供Web界面进行配置，用处广泛，可以给防火墙，路由器以及VPN路由等使用。</p>
+<p><img src="/img/2017/08/vsphere/2.png" alt=""></p>
+<p>这次实验是将pfSense安装在虚拟机里，所以才叫做“软路由”。</p>
+<h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><p>前边给服务器安装vSphere ESXi的过程就不写了。</p>
+<p>ESXi系统搭建好，并配好IP地址<code>10.10.10.10</code>。另外需要一台能访问这个ip地址的电脑，暂时将这台电脑的IP地址算做是<code>10.10.10.9</code>好了，这个不影响，只要能访问到就行。</p>
+<p>可以从pfSense官网下载ISO镜像安装pfSense系统，也可以使用OVF模板。我采用OVM模板弄的，这个中文全称是<a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%BC%E5%BC%8F%E6%96%87%E4%BB%B6" target="_blank" rel="external">开放虚拟机格式文件</a>。比起ISO还是方便很多。一路下一步就可以建立好一个pfSense虚拟机，但是不要开启。</p>
+<p><img src="/img/2017/08/vsphere/4.png" alt=""></p>
+<p>另外如果想配置好这个软路由，最好在服务器上新建一个Windows虚拟机（其实也可以是带图形的Linux，比如Ubuntu，不过我不喜欢给自己找麻烦）。建立虚拟机之前需要将ISO文件上传到服务器上，可以如下图，直接访问存储器，然后上载文件（还是上传文件这个翻译顺口一点）。</p>
+<p><img src="/img/2017/08/vsphere/22.jpg" alt=""></p>
+<p><img src="/img/2017/08/vsphere/5.png" alt=""></p>
+<p>建立虚拟机的过程比较容易，无非就是选择一下系统版本，CPU核心数，内存大小之类的，有一个小坑提一下：</p>
+<p><img src="/img/2017/08/vsphere/6.png" alt=""></p>
+<p>上图打开电源时连接，在开启虚拟机之前一定要勾上，否则会提示没有操作系统，虽然是个很蠢的坑，但是一不小心还真容易犯错，另外上图是我已经完成所有配置后的图，包括网络配置，除了标红的地方剩下的如果有什么不一样可以忽略。</p>
+<p>Ok，现在已经有了一台装好ESXi系统的服务器，并且有了两个IP地址，ESXi分配了<code>10.10.10.10</code>，而且添加了一台虚拟机，虽然目前这个虚拟机是无法上网的（除非独吞掉<code>10.10.10.11</code>这个IP地址）</p>
+<h3 id="添加网络"><a href="#添加网络" class="headerlink" title="添加网络"></a>添加网络</h3><p><img src="/img/2017/08/vsphere/33.jpg" alt=""></p>
+<p>第一部，选择添加虚拟机网络：</p>
+<p><img src="/img/2017/08/vsphere/44.jpg" alt=""></p>
+<p>然后断开所有适配器的链接</p>
+<p><img src="/img/2017/08/vsphere/7.png" alt=""></p>
+<p>改个名字，NAT Network</p>
+<p><img src="/img/2017/08/vsphere/8.png" alt=""></p>
+<h3 id="pfSense命令行配置"><a href="#pfSense命令行配置" class="headerlink" title="pfSense命令行配置"></a>pfSense命令行配置</h3><p>刚才用OVF模板建立好的pfSense虚拟机，网络适配器需要改成这样的</p>
+<p><img src="/img/2017/08/vsphere/9.png" alt=""></p>
+<p>开机的欢迎界面还是可以的</p>
+<p><img src="/img/2017/08/vsphere/10.png" alt=""></p>
+<p>虽然看到开机界面很开心，但是这个系统启动的速度其实”快“得惊人，我等了可能有十分钟才可以交互，交互界面长这样。先选择1，注册一下网络适配器。</p>
+<p><img src="/img/2017/08/vsphere/11.png" alt=""></p>
+<p>不设置VLAN</p>
+<p><img src="/img/2017/08/vsphere/12.png" alt=""></p>
+<p>然后WAN适配器输入em0，如果不放心，可以比对一下MAC地址。</p>
+<p><img src="/img/2017/08/vsphere/13.png" alt=""></p>
+<p><img src="/img/2017/08/vsphere/14.png" alt=""></p>
+<p>接着设置LAN适配器为em1</p>
+<p><img src="/img/2017/08/vsphere/15.png" alt=""></p>
+<p>再按个回车，不设置其他的了，然后按y</p>
+<p><img src="/img/2017/08/vsphere/16.png" alt=""></p>
+<p>已经回到了主菜单，等个十秒钟左右就好了，下一步设置IP地址，选择2</p>
+<p><img src="/img/2017/08/vsphere/17.png" alt=""></p>
+<p>选择1，设置WAN，我不用DHCP，所以选择n</p>
+<p><img src="/img/2017/08/vsphere/18.png" alt=""></p>
+<p>设置IP地址为<code>10.10.10.11</code></p>
+<p><img src="/img/2017/08/vsphere/19.png" alt=""></p>
+<p>子网掩码，根据情况设置，相信都懂</p>
+<p><img src="/img/2017/08/vsphere/20.png" alt=""></p>
+<p>这个是http的Web接口，选择y</p>
+<p><img src="/img/2017/08/vsphere/21.png" alt=""></p>
+<p>然后又到主菜单了，继续设置LAN，和刚才一样的配置方法。</p>
+<p><img src="/img/2017/08/vsphere/22.png" alt=""></p>
+<h3 id="pfSense-Web配置"><a href="#pfSense-Web配置" class="headerlink" title="pfSense Web配置"></a>pfSense Web配置</h3><p>经过刚才的配置，pfSense的Web管理页面已经可以访问，刚才提前建好的Windows虚拟机可以派上用场了。不过在用之前先把网络适配器改成NAT Network。</p>
+<p>将windows的本地连接ipv4地址改成<code>192.168.1.2</code>，随意，只要是这个网段下的都可以，不截图了。</p>
+<p>浏览器访问<a href="http://192.168.1.1" target="_blank" rel="external">http://192.168.1.1</a> 初始用户名密码是：admin/pfsense</p>
+<p>设置WAN，我用的是Static方式，也可以是PPPOE等</p>
+<p><img src="/img/2017/08/vsphere/24.png" alt=""></p>
+<p>接下来设置LAN，稍稍看一下就好了，就是之前命令行中的，然后根据提示修改admin密码就完成了设置。</p>
+<p>现在的网络界面是这样的，关于IP地址的部分被我挡住了，因为我换掉了IP，多出一个完全不一样的IP地址可能会造成误导吧（vmk0后边的就是<code>10.10.10.11</code>）：</p>
+<p><img src="/img/2017/08/vsphere/25.png" alt=""></p>
+<p>然后，见证奇迹的时刻。</p>
+<p><img src="/img/2017/08/vsphere/26.png" alt=""></p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="http://boytnt.blog.51cto.com/966121/1292487（感谢这位作者，首次配置的指导，关于pfSense配置的部分大致相同）" target="_blank" rel="external">http://boytnt.blog.51cto.com/966121/1292487（感谢这位作者，首次配置的指导，关于pfSense配置的部分大致相同）</a></p>
+<p><a href="https://en.wikipedia.org/wiki/PfSense" target="_blank" rel="external">https://en.wikipedia.org/wiki/PfSense</a></p>
+<p><a href="http://www.360doc.com/content/16/1125/10/27498460_609365608.shtml（虽然没有参考这篇文章，但是这是个单一IP地址就配置了软路由的大哥，折腾的精神值得学习，原链404了，只好贴个360的）" target="_blank" rel="external">http://www.360doc.com/content/16/1125/10/27498460_609365608.shtml（虽然没有参考这篇文章，但是这是个单一IP地址就配置了软路由的大哥，折腾的精神值得学习，原链404了，只好贴个360的）</a></p>
+
+        </div>
+        <div id="post-footer">
+            <div class="avatar" >
+                <img src="/img/jay_chou.jpg" alt="avatar"/>
+                
+                
+            </div>
+            <ul class="author-profile-section">
+                <li>作者:
+                    
+                    <a href="/about.html">Zebork</a>
+                </li>
+                <li>发表日期: <span>2017-08-31  04:13:46</span></li>
+                
+                <li>最后编辑日期: <span>2017-08-31  11:10:36</span></li>
+                
+                <li class="post-category">
+                    文章分类:
+                    
+                    <a href="/categories/无聊折腾/">无聊折腾</a>
+                    
+                </li>
+                <li class="post-tags">
+                    文章标签:
+                    
+                    <a href="/tags/vSphere-pfSense/">vSphere pfSense</a>
+                    
+                </li>
+                
+            </ul>
+            <div id="donate-wrap">
+                
+                
+                
+                <img src="http://example.com/alipay.jpg" alt="支付宝付款" class="donate-img">
+                
+                <img src="http://example.com/wechat.png" alt="微信付款" class="donate-img">
+                
+                
+            </div>
+        </div>
+    </article>
+    <div class="article-nav">
+        
+        
+        <a href="/2017/05/14/2017/CSharp_2017_05_14/" class="next-post fa">C# 委托和事件</a>
+        
+    </div>
+    
+    <div id="comments">
+        
+
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+    <footer id="footer">
+    
+    <div class="social">
+        
+        <a href="" class="fa null" target="_blank" title="null"></a>
+        
+        <a href="https://github.com/zebork" class="fa fa-github" target="_blank" title="Follow me~"></a>
+        
+    </div>
+    
+    <div>
+        
+        <a href="/" class="copyright-links">Zebork</a>&copy;2015 - 2017.All Rights
+        Reserved.
+    </div>
+    <p>Powered by <a href="https://hexo.io" class="copyright-links" target="_blank">Hexo</a> | Theme by <a
+                href="https://github.com/GeekaholicLin" class="copyright-links" target="_blank">GeekaholicLin</a>
+    </p>
+    
+</footer>
+
+</div>
+    <ul id="tools">
+    <li class="totop-btn fa fa-angle-up"></li>
+    
+    <li class="toc-btn fa fa-list-ul"></li>
+    
+    
+
+    
+</ul>
+<p id="process"></p>
+<div id="search-overlay">
+    <div class="search-area-wrap">
+        <div id="search-area">
+            <div class="input-wrap focus">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input id="search-input" autofocus autocomplete="off" type="text"
+                       placeholder="search this website..."/>
+            </div>
+            <ul id="search-result">
+                <li class="load-first"><i class="fa fa-spinner fa-spin"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vSphere-ESXi"><span class="toc-number">1.</span> <span class="toc-text">vSphere ESXi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pfSense软路由"><span class="toc-number">2.</span> <span class="toc-text">pfSense软路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建过程"><span class="toc-number">3.</span> <span class="toc-text">搭建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加网络"><span class="toc-number">3.1.</span> <span class="toc-text">添加网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pfSense命令行配置"><span class="toc-number">3.2.</span> <span class="toc-text">pfSense命令行配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pfSense-Web配置"><span class="toc-number">3.3.</span> <span class="toc-text">pfSense Web配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考："><span class="toc-number">4.</span> <span class="toc-text">参考：</span></a></li></ol>
+
+
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    //theme config datas
+    var copyrightObj = {};
+    copyrightObj.enable = 'true';
+    copyrightObj.triggerCopyLength = '200';
+    copyrightObj.appendText = '商业转载请联系作者获得授权,非商业转载请注明出处 © example';
+    var leancloudObj = {};
+    leancloudObj.enable = 'false';
+    leancloudObj.className = 'BlogCounter';
+    leancloudObj.limits = '10';
+</script>
+<script type="text/javascript">
+    var search = {};
+    var search_path = "search.xml";
+    if (!search_path) {
+        search_path = "search.xml";
+    }
+    search.path = "/" + search_path;
+    search.func =  _ajax.init();
+</script>
+<script src="/js/app.js"></script>
+
+
+</body>
+</html>

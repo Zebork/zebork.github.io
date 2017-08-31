@@ -66,11 +66,11 @@
     </div>
     <ul id="nav">
         
-            <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
         
             <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS</a></li>
         
-        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>Search</a></li>
+        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>搜索</a></li>
     </ul>
 </header>
 
@@ -82,16 +82,16 @@
     
     
 <li class="widget widget-normal category">
-    <h3 class="fa fa-th widget-title">Categories</h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/Programing/"><i class="fa" aria-hidden="true">Programing</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/扯淡/"><i class="fa" aria-hidden="true">扯淡</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/无聊折腾/"><i class="fa" aria-hidden="true">无聊折腾</i></a><span class="category-list-count">1</span></li></ul>
+    <h3 class="fa fa-th widget-title">分类</h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Programing/"><i class="fa" aria-hidden="true">Programing</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/扯淡/"><i class="fa" aria-hidden="true">扯淡</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/无聊折腾/"><i class="fa" aria-hidden="true">无聊折腾</i></a><span class="category-list-count">2</span></li></ul>
 </li>
 
 
     
     
 <li class="widget widget-normal archive">
-  <h3 class="fa fa-archive widget-title">Archives</h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/"><i class="fa" aria-hidden="true">May 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/"><i class="fa" aria-hidden="true">March 2017</i></a><span class="archive-list-count">2</span></li></ul>
+  <h3 class="fa fa-archive widget-title">归档</h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/"><i class="fa" aria-hidden="true">August 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/"><i class="fa" aria-hidden="true">May 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/"><i class="fa" aria-hidden="true">March 2017</i></a><span class="archive-list-count">2</span></li></ul>
 </li>
 
 
@@ -100,17 +100,17 @@
     
     
 <li class="widget widget-normal tags">
-  <h3 class="fa fa-tags widget-title">Tag Cloud</h3>
+  <h3 class="fa fa-tags widget-title">标签云</h3>
   <div class="tagcloud-content">
     
-      <a href="/tags/扯淡/" style="font-size: 0.14rem; color: #69c">扯淡</a> <a href="/tags/C/" style="font-size: 0.14rem; color: #69c">C#</a> <a href="/tags/Seafile/" style="font-size: 0.14rem; color: #69c">Seafile</a>
+      <a href="/tags/扯淡/" style="font-size: 0.14rem; color: #69c">扯淡</a> <a href="/tags/C/" style="font-size: 0.14rem; color: #69c">C#</a> <a href="/tags/Seafile/" style="font-size: 0.14rem; color: #69c">Seafile</a> <a href="/tags/vSphere-pfSense/" style="font-size: 0.14rem; color: #69c">vSphere pfSense</a>
   </div>
 </li>
 
     
     
 <li class="widget widget-normal friends-link">
-    <h3 class="fa fa-globe widget-title">Friends</h3><br/>
+    <h3 class="fa fa-globe widget-title">友链</h3><br/>
 
     
         <a href="http://sh3ll.me" class="fa" target="_blank">Chu</a>
@@ -140,6 +140,57 @@
     
     
     
+    
+    
+    <li  class="article-excerpt-wrap " _href = "/2017/08/31/2017/vsphere_pfsense_2017-08-31/">
+        <div class="article-img img-ajax" data-src= /img/2017/08/vsphere/7.png>
+           <div class="loading-img"><i class="fa fa-pulse fa-spinner"></i></div>
+        </div>
+        <div class="article-excerpt">
+            
+            <a class="article-title-link" href="/2017/08/31/2017/vsphere_pfsense_2017-08-31/">
+                <h2 class="article-title">vSphere + pfSense 虚拟化服务器</h2>
+            </a>
+            
+            <p class="article-content">
+                vSphere ESXivSphere ESXi是VMware公司的服务器系统，老版本的vSphere ESX是基于Red Hat Linux的服务器控制平台，而新版本的ESXi直接在VMkernel上运行，一个vSphere ESXi 6.0.0系统的镜像大小缩小为375MB左右。
+为服务器安装vSphere ESXi系统时可以采用平时装机常用烧USB的方式，不过前提是对服务器比较熟悉，如果是新服务器还需要配置虚拟存储器，如果插了很多块硬盘可能会有分区等操作。
+另外，U盘启动之前，启动模式要调成EFI模式，不能用BIOS模式，否则会出现坑，坑长这样：
+12345678910111213Loading /tboot.b00Loading /b.b00Loading /useropts.gzLoading /k.b00Loading /a.b00Loading /ata-pata.v0...
+            </p>
+            <div class="article-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+        <span>无聊折腾</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+         <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            vSphere pfSense
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta ">2017/08/31</span>
+    </span>
+    
+    
+    
+    <a href="/2017/08/31/2017/vsphere_pfsense_2017-08-31/" class="read-article">阅读全文</a>
+    
+</div>
+
+        </div>
+        
+    </li>
     
     
     <li  class="article-excerpt-wrap " _href = "/2017/05/14/2017/CSharp_2017_05_14/">
@@ -183,7 +234,7 @@
     
     
     
-    <a href="/2017/05/14/2017/CSharp_2017_05_14/" class="read-article">Read</a>
+    <a href="/2017/05/14/2017/CSharp_2017_05_14/" class="read-article">阅读全文</a>
     
 </div>
 
@@ -234,7 +285,7 @@
     
     
     
-    <a href="/2017/03/17/Beginning/" class="read-article">Read</a>
+    <a href="/2017/03/17/Beginning/" class="read-article">阅读全文</a>
     
 </div>
 
@@ -244,7 +295,7 @@
     
     
     <li  class="article-excerpt-wrap " _href = "/2017/03/17/2017/Seafile_2017_08_31/">
-        <div class="article-img img-ajax" data-src= /img/2017/08/6.png>
+        <div class="article-img img-ajax" data-src= /img/2017/08/1.png>
            <div class="loading-img"><i class="fa fa-pulse fa-spinner"></i></div>
         </div>
         <div class="article-excerpt">
@@ -287,7 +338,7 @@ seafile代码托管在github上，看了一下最近的commit，貌似很神奇�
     
     
     
-    <a href="/2017/03/17/2017/Seafile_2017_08_31/" class="read-article">Read</a>
+    <a href="/2017/03/17/2017/Seafile_2017_08_31/" class="read-article">阅读全文</a>
     
 </div>
 
