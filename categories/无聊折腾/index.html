@@ -20,7 +20,7 @@
 <meta name="verify" content=all />
     <!--Title-->
 
-<title>Zebork&#39;s Blog</title>
+<title>Category: 无聊折腾 | Zebork&#39;s Blog</title>
 
 <link rel="alternate" href="/atom.xml" title="Zebork&#39;s Blog" type="application/atom+xml">
 
@@ -29,7 +29,7 @@
 
     
 <link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/pages/article-exp.css">
+<link rel="stylesheet" href="/css/pages/archive.css">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/thirdParty/highlight/github.css">
     <!--script-->
@@ -57,7 +57,7 @@
 <![endif]-->
 
 <div id="wrap">
-    <header >
+    <header  style="position: absolute;" >
     <div id="site-meta">
         <a href="/" id="logo">
             <h1 class="title">Zebork&#39;s Blog</h1>
@@ -132,142 +132,15 @@
 </ul>
 
 
-        <ul id="main">
-    
-
-    
-    
-    
-    
-    
-    
-    
-    <li  class="article-excerpt-wrap " _href = "/2017/05/14/2017/CSharp_2017_05_14/">
-        <div class="article-img img-ajax" data-src= /img/2017/05/CSharp.png>
-           <div class="loading-img"><i class="fa fa-pulse fa-spinner"></i></div>
-        </div>
-        <div class="article-excerpt">
+        <div id="main">
+    <div id="post-list">
+        <ul class="archives-post-list">
             
-            <a class="article-title-link" href="/2017/05/14/2017/CSharp_2017_05_14/">
-                <h2 class="article-title">C# 委托和事件</h2>
-            </a>
-            
-            <p class="article-content">
-                C# 中的委托和事件是理解这门语言的一道坎，这回记一下。本文能多简略就多简略，如果被想真正学习这方面知识不小心被搜索到，请移步其他大神的博客。
-委托并没有脱离开事件写过委托，但是委托确实是可以不和事件一起用的。委托是针对方法的一种归类方式。
-12345678910111213public delegate void PlayDelegate(string name);private void PlayBoy(string name) &#123;  Console.WriteLine(&quot;Hey &quot;+ name + &quot;, play with me?&quot;);&#125;private void PlayGirl(String name) &#123;  Console.WriteLine(&quot;Hey &quot;+ name + &quot;...
-            </p>
-            <div class="article-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-            <i class="fa fa-folder-open-o"></i>
-        <span>Programing</span>
-    </span>
-    
-    
-    <span class="fa-wrap">
-         <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-            C#
-            
-        </span>
-    </span>
-    
-    
-    <span class="fa-wrap">
-        <i class="fa fa-clock-o"></i>
-        <span class="date-meta ">2017/05/14</span>
-    </span>
-    
-    
-    
-    <a href="/2017/05/14/2017/CSharp_2017_05_14/" class="read-article">Read</a>
-    
-</div>
-
-        </div>
-        
-    </li>
-    
-    
-    <li  class="article-excerpt-wrap " _href = "/2017/03/17/Beginning/">
-        <div class="article-img img-ajax" data-src= /img/go_die.jpg>
-           <div class="loading-img"><i class="fa fa-pulse fa-spinner"></i></div>
-        </div>
-        <div class="article-excerpt">
-            
-            <a class="article-title-link" href="/2017/03/17/Beginning/">
-                <h2 class="article-title">出事儿啦</h2>
-            </a>
-            
-            <p class="article-content">
-                之前的博客狗带了，备份的不是源文件，重做一份太麻烦。
-新的开始。。
-
-
-            </p>
-            <div class="article-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-            <i class="fa fa-folder-open-o"></i>
-        <span>扯淡</span>
-    </span>
-    
-    
-    <span class="fa-wrap">
-         <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-            扯淡
-            
-        </span>
-    </span>
-    
-    
-    <span class="fa-wrap">
-        <i class="fa fa-clock-o"></i>
-        <span class="date-meta ">2017/03/17</span>
-    </span>
-    
-    
-    
-    <a href="/2017/03/17/Beginning/" class="read-article">Read</a>
-    
-</div>
-
-        </div>
-        
-    </li>
-    
-    
-    <li  class="article-excerpt-wrap " _href = "/2017/03/17/2017/Seafile_2017_08_31/">
-        <div class="article-img img-ajax" data-src= /img/2017/08/6.png>
-           <div class="loading-img"><i class="fa fa-pulse fa-spinner"></i></div>
-        </div>
-        <div class="article-excerpt">
-            
-            <a class="article-title-link" href="/2017/03/17/2017/Seafile_2017_08_31/">
-                <h2 class="article-title">我就看看Seafile是个啥</h2>
-            </a>
-            
-            <p class="article-content">
+            <li class="post-items" _href="/2017/03/17/2017/Seafile_2017_08_31/">
                 
-介绍Seafile官网上的一段介绍：”Seafile 是一款开源的企业云盘，注重可靠性和性能。支持 Windows, Mac, Linux, iOS, Android 平台。支持文件同步或者直接挂载到本地访问。“
-seafile代码托管在github上，看了一下最近的commit，貌似很神奇，一片红叉。
-环境准备直接搞了个Debian9 x64位系统测试，为啥要用这么新的呢，因为方便，为啥方便呢，因为内核版本是4.9，不用换内核了（我这么懒），为啥要换内核呢，因为锐速不支持ipv6，我要用bbr啊，为啥要用bbr呢？……拉倒吧，不扯犊子了。
-使用最熟悉的MySQL部署，跟着文档先把各种依赖软件安了，表示文档中这个目录设计还是很不错的。
-123apt-get updateapt-get install mariadb-serverapt-get install python2.7 p...
-            </p>
-            <div class="article-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-            <i class="fa fa-folder-open-o"></i>
-        <span>无聊折腾</span>
-    </span>
+                <p class="info">无聊折腾</p>
+                <h2 class="post-item-title">我就看看Seafile是个啥</h2>
+                <div class="article-meta">
     
     
     <span class="fa-wrap">
@@ -287,17 +160,18 @@ seafile代码托管在github上，看了一下最近的commit，貌似很神奇�
     
     
     
-    <a href="/2017/03/17/2017/Seafile_2017_08_31/" class="read-article">Read</a>
-    
 </div>
 
-        </div>
-        
-    </li>
-    
-    
+            </li>
+            
+        </ul>
+    </div>
+</div>
 
-</ul>
+
+
+
+
 
     </div>
     <footer id="footer">

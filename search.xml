@@ -57,6 +57,51 @@
         
     </entry>
     
+    <entry>
+        <title><![CDATA[我就看看Seafile是个啥]]></title>
+        <url>http://yoursite.com/2017/03/17/2017/Seafile_2017_08_31/</url>
+        <content type="html"><![CDATA[<p><img src="/img/2017/08/1.png" alt="1"></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a href="https://www.seafile.com" target="_blank" rel="external">Seafile官网</a>上的一段介绍：”Seafile 是一款开源的企业云盘，注重可靠性和性能。支持 Windows, Mac, Linux, iOS, Android 平台。支持文件同步或者直接挂载到本地访问。“</p>
+<p>seafile代码托管在<a href="https://github.com/haiwen/seafile" target="_blank" rel="external">github</a>上，看了一下最近的commit，貌似很神奇，一片红叉。</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>直接搞了个Debian9 x64位系统测试，为啥要用这么新的呢，因为方便，为啥方便呢，因为内核版本是4.9，不用换内核了（我这么懒），为啥要换内核呢，因为锐速不支持ipv6，我要用bbr啊，为啥要用bbr呢？……拉倒吧，不扯犊子了。</p>
+<p>使用最熟悉的MySQL部署，跟着<a href="http://manual-cn.seafile.com/deploy/using_mysql.html" target="_blank" rel="external">文档</a>先把各种依赖软件安了，表示文档中这个目录设计还是很不错的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get install mariadb-server</div><div class="line">apt-get install python2.7 python-setuptools python-imaging python-ldap python-mysqldb python-memcache python-urllib3</div></pre></td></tr></table></figure>
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><p>文档中写的比较详细，所以这里就简单写一下好了。</p>
+<p>安装过程开始要填写一些信息</p>
+<p><img src="/img/2017/08/2.png" alt="2"></p>
+<p>配置好后的样子：</p>
+<p><img src="/img/2017/08/3.png" alt="3"></p>
+<p>按照官网的介绍，不过我改了一下端口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./seafile.sh start # 启动 Seafile 服务</div><div class="line">./seahub.sh start 38000 # 启动 Seahub 网站 （运行在38000端口上）</div></pre></td></tr></table></figure>
+<h2 id="客户端是个什么感觉"><a href="#客户端是个什么感觉" class="headerlink" title="客户端是个什么感觉"></a>客户端是个什么感觉</h2><p><img src="/img/2017/08/4.png" alt="4"></p>
+<p>看起来有点网盘的样子，功能很强大。不过http是不太能够让人放心的。</p>
+<p>直接用网页访问就是这个效果（明文密码）：</p>
+<p><img src="/img/2017/08/5.png" alt="5"></p>
+<p>脱离浏览器的客户端也是一个叼样子（毕竟都是http协议，其实不用测了）：</p>
+<p><img src="/img/2017/08/6.png" alt="6"></p>
+<h2 id="安利时间"><a href="#安利时间" class="headerlink" title="安利时间"></a>安利时间</h2><p>直接默认http搭建的姿势肯定是不可取的了。不过Seafile支持用apache2或者nginx进行反向代理，采用FastCGI，对外开放https的方式。这种配置方式Seafile的中文文档做的还是很详细的。</p>
+<p><img src="/img/2017/08/7.png" alt="7"></p>
+<p>我用了一个东西比较多的服务器去搞这个事情，为了不和之前的服务冲突，这个https就不测试了。毕竟硬盘剩余空间还有2G，折腾完自己也用着不爽（2333）。</p>
+<p>不过我看到了一个很叼的图：</p>
+<p><img src="/img/2017/08/7.png" alt="8"></p>
+<p>OK，这东西还支持分布式，美滋滋。</p>
+]]></content>
+        
+        <categories>
+            
+            <category> 无聊折腾 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Seafile </tag>
+            
+        </tags>
+        
+    </entry>
+    
     
     
 </search>
