@@ -32,17 +32,37 @@
 <link rel="stylesheet" href="/css/pages/post.css">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/thirdParty/highlight/github.css">
+<link rel="stylesheet" href="/css/pages/comments.css">
+
     <!--script-->
 
 
 
+<!--<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>-->
 
+
+<script src="/js/thirdParty/gitment.browser.min.js"></script>
+<script>
+  var labels = "blog,gitment";
+  labels = labels.split(",");
+  var gitment = new Gitment({
+    id: window.location.pathname,
+    owner: "GeekaholicLin",
+    repo: "geekaholiclin.github.io",
+    oauth: {
+      client_id: "aa2215dfc8ee944d1205",
+      client_secret: "77cd2afa5d161bc0ab04639ed81300d808c6e22b"
+    },
+    perPage: "20",
+    labels: labels
+  });
+</script>
 
     
     
 </head>
 
-<body>
+<body id="normal">
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -66,11 +86,11 @@
     </div>
     <ul id="nav">
         
-            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+            <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
         
             <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS</a></li>
         
-        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>搜索</a></li>
+        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>Search</a></li>
     </ul>
 </header>
 
@@ -82,16 +102,16 @@
     
     
 <li class="widget widget-normal category">
-    <h3 class="fa fa-th widget-title">分类</h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Programing/"><i class="fa" aria-hidden="true">Programing</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/扯淡/"><i class="fa" aria-hidden="true">扯淡</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/无聊折腾/"><i class="fa" aria-hidden="true">无聊折腾</i></a><span class="category-list-count">2</span></li></ul>
+    <h3 class="fa fa-th widget-title">Categories</h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Programing/"><i class="fa" aria-hidden="true">Programing</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/"><i class="fa" aria-hidden="true">Web</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/扯淡/"><i class="fa" aria-hidden="true">扯淡</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/无聊折腾/"><i class="fa" aria-hidden="true">无聊折腾</i></a><span class="category-list-count">2</span></li></ul>
 </li>
 
 
     
     
 <li class="widget widget-normal archive">
-  <h3 class="fa fa-archive widget-title">归档</h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/"><i class="fa" aria-hidden="true">August 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/"><i class="fa" aria-hidden="true">May 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/"><i class="fa" aria-hidden="true">March 2017</i></a><span class="archive-list-count">2</span></li></ul>
+  <h3 class="fa fa-archive widget-title">Archives</h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/"><i class="fa" aria-hidden="true">August 2017</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/"><i class="fa" aria-hidden="true">May 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/"><i class="fa" aria-hidden="true">March 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/"><i class="fa" aria-hidden="true">November 2016</i></a><span class="archive-list-count">1</span></li></ul>
 </li>
 
 
@@ -100,17 +120,18 @@
     
     
 <li class="widget widget-normal tags">
-  <h3 class="fa fa-tags widget-title">标签云</h3>
+  <h3 class="fa fa-tags widget-title">Tag Cloud</h3>
   <div class="tagcloud-content">
     
-      <a href="/tags/扯淡/" style="font-size: 0.14rem; color: #69c">扯淡</a> <a href="/tags/C/" style="font-size: 0.14rem; color: #69c">C#</a> <a href="/tags/Seafile/" style="font-size: 0.14rem; color: #69c">Seafile</a> <a href="/tags/vSphere-pfSense/" style="font-size: 0.14rem; color: #69c">vSphere pfSense</a>
+      <a href="/tags/扯淡/" style="font-size: 0.14rem; color: #69c">扯淡</a> <a href="/tags/Seafile/" style="font-size: 0.14rem; color: #69c">Seafile</a> <a href="/tags/C/" style="font-size: 0.14rem; color: #69c">C#</a> <a href="/tags/vSphere/" style="font-size: 0.14rem; color: #69c">vSphere</a> <a href="/tags/pfSense/" style="font-size: 0.14rem; color: #69c">pfSense</a> <a href="/tags/Web前端/" style="font-size: 0.14rem; color: #69c">Web前端</a> <a href="/tags/僵尸网络/" style="font-size: 0.14rem; color: #69c">僵尸网络</a>
   </div>
 </li>
+
 
     
     
 <li class="widget widget-normal friends-link">
-    <h3 class="fa fa-globe widget-title">友链</h3><br/>
+    <h3 class="fa fa-globe widget-title">Friends</h3><br/>
 
     
         <a href="http://sh3ll.me" class="fa" target="_blank">Chu</a>
@@ -165,12 +186,6 @@
         <span class="date-meta ">2017/05/14</span>
     </span>
     
-    <span  class=" fa-wrap">
-        <i class="fa fa-comment-o"></i>
-        <span id="comments-count" class="comments-meta disqus-comment-count ds-thread-count comments" data-disqus-url="http://yoursite.com/2017/05/14/2017/CSharp_2017_05_14/" data-thread-key="/2017/05/14/2017/CSharp_2017_05_14/"
-           data-count-type="comments"></span>
-    </span>
-    
     
     
 </div>
@@ -182,7 +197,7 @@
         <div id="post-body">
             <p>C# 中的委托和事件是理解这门语言的一道坎，这回记一下。本文能多简略就多简略，如果被想真正学习这方面知识不小心被搜索到，请移步其他大神的博客。</p>
 <h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><p>并没有脱离开事件写过委托，但是委托确实是可以不和事件一起用的。委托是针对方法的一种归类方式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public delegate void PlayDelegate(string name);</div><div class="line"></div><div class="line">private void PlayBoy(string name) &#123;</div><div class="line">  Console.WriteLine(&quot;Hey &quot;+ name + &quot;, play with me?&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">private void PlayGirl(String name) &#123;</div><div class="line">  Console.WriteLine(&quot;Hey &quot;+ name + &quot;, play with me?&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">public void Play(string name, PlayDelegate playMethod) &#123;</div><div class="line">  playMethod(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public delegate void PlayDelegate(string name);</div><div class="line">private void PlayBoy(string name) &#123;</div><div class="line">  Console.WriteLine(&quot;Hey &quot;+ name + &quot;, play with me?&quot;);</div><div class="line">&#125;</div><div class="line">private void PlayGirl(String name) &#123;</div><div class="line">  Console.WriteLine(&quot;Hey &quot;+ name + &quot;, play with me?&quot;);</div><div class="line">&#125;</div><div class="line">public void Play(string name, PlayDelegate playMethod) &#123;</div><div class="line">  playMethod(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>类似于python中的函数名称作为参数传递，只不过更为标准化。</p>
 <h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>不想搞得太复杂，直接上干货，经典的例子，烧水。</p>
 <h3 id="Heater类："><a href="#Heater类：" class="headerlink" title="Heater类："></a>Heater类：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public delegate void BoilHandler(object sender, BoilEventArgs e); </div><div class="line">public event BoilHandler BoilEvent;</div><div class="line">public class BoilEventArgs : EventArgs</div><div class="line">&#123;</div><div class="line">    public int temperature &#123; get; set; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -201,22 +216,26 @@
                 
             </div>
             <ul class="author-profile-section">
-                <li>作者:
+                <li>
+                  
+                  Author:
+                  
                     
                     <a href="/about.html">Zebork</a>
                 </li>
-                <li>发表日期: <span>2017-05-14  09:57:43</span></li>
                 
-                <li>最后编辑日期: <span>2017-05-15  01:35:50</span></li>
+                <li>Published Date: <span>2017-05-14  12:00:00</span></li>
+                
+                <li>Updated Date: <span>2017-09-01  11:01:56</span></li>
                 
                 <li class="post-category">
-                    文章分类:
+                    Categories:
                     
                     <a href="/categories/Programing/">Programing</a>
                     
                 </li>
                 <li class="post-tags">
-                    文章标签:
+                    Tags:
                     
                     <a href="/tags/C/">C#</a>
                     
@@ -237,7 +256,7 @@
     </article>
     <div class="article-nav">
         
-        <a href="/2017/08/31/2017/vsphere_pfsense_2017-08-31/" class="pre-post fa fa-caret-left">vSphere + pfSense 虚拟化服务器</a>
+        <a href="/2017/08/31/2017/Seafile_2017_08_31/" class="pre-post fa fa-caret-left">我就看看Seafile是个啥</a>
         
         
         <a href="/2017/03/17/Beginning/" class="next-post fa">出事儿啦</a>
@@ -246,6 +265,10 @@
     
     <div id="comments">
         
+
+<script>
+  gitment.render(document.getElementById("comments"));
+</script>
 
 
 
@@ -279,11 +302,16 @@
 </div>
     <ul id="tools">
     <li class="totop-btn fa fa-angle-up"></li>
-    
+    <li class="exchange-btn fa fa-exchange"></li>
+  
     <li class="toc-btn fa fa-list-ul"></li>
     
     
 
+    
+    <li class="comment-btn fa fa-comments-o">
+        <a href="#comments" title="comments"></a>
+    </li>
     
 </ul>
 <p id="process"></p>
@@ -296,7 +324,7 @@
                        placeholder="search this website..."/>
             </div>
             <ul id="search-result">
-                <li class="load-first"><i class="fa fa-spinner fa-spin"></i></li>
+                <li class="load-first"><i class="fa fa-spinner fa-pulse"></i></li>
             </ul>
         </div>
     </div>

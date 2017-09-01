@@ -19,12 +19,6 @@
   height: 130px;
   line-height: 1.5;
   vertical-align: top;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
   border: 1px solid #cecece;
   -webkit-box-shadow: 0 1px 1px #666666;
   -moz-box-shadow: 0 1px 1px #666666;
