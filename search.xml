@@ -309,29 +309,6 @@
     </entry>
     
     <entry>
-        <title><![CDATA[出事儿啦]]></title>
-        <url>http://yoursite.com/2017/03/17/Beginning/</url>
-        <content type="html"><![CDATA[<p>之前的博客狗带了，备份的不是源文件，重做一份太麻烦。</p>
-<p>新的开始。。</p>
-<p><img src="/img/go_die.jpg" alt=""></p>
-]]></content>
-        
-        <categories>
-            
-            <category> 扯淡 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 扯淡 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
         <title><![CDATA[awvs+sqlmap傻瓜注入]]></title>
         <url>http://yoursite.com/2016/04/08/2016/2016-04-08-SEH/</url>
         <content type="html"><![CDATA[<p>本文将从一下几点介绍利用S.E.H写shellcode。</p>
