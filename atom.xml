@@ -394,9 +394,9 @@
       <category term="二进制" scheme="http://yoursite.com/categories/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     
-      <category term="二进制" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
       <category term="SEH" scheme="http://yoursite.com/tags/SEH/"/>
+    
+      <category term="二进制" scheme="http://yoursite.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
   </entry>
   
