@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/02/07/2018/Golang_mips32le/</loc>
+    
+    <lastmod>2018-02-08T08:39:15.887Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/04/08/2016/2016-04-08-SEH/</loc>
     
     <lastmod>2017-12-29T13:01:21.676Z</lastmod>

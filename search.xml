@@ -3,6 +3,53 @@
     
     
     <entry>
+        <title><![CDATA[Golang mips32le(mipsel/ramips) 交叉编译]]></title>
+        <url>http://yoursite.com/2018/02/07/2018/Golang_mips32le/</url>
+        <content type="html"><![CDATA[<h1 id="0x01-缘起"><a href="#0x01-缘起" class="headerlink" title="0x01 缘起"></a>0x01 缘起</h1><p>要在斐讯K1/K2上写一些代码操纵流量走向，操作逻辑也比较复杂，为了性能本人一开始是用C的，直接在openwrt官网上就可以下载到全套的SDK，包括GCC，G++等等。然而写了两天，已经泡在bug的海洋里了，还是菜。</p>
+<p>为了赶上deadline，不得不换Golang。然而Golang的官方版本是没有针对mipsel架构的，但是Google一下发现Gitbub上存在一个单独的Go项目可以针对mipsel进行交叉编译。</p>
+<p>tip：据说Golang的速度仅次于C++，本人没有实际测过。</p>
+<h1 id="0x02-环境"><a href="#0x02-环境" class="headerlink" title="0x02 环境"></a>0x02 环境</h1><p>本次配置要感谢Go语言中文网jacle169的<a href="https://studygolang.com/articles/7326" target="_blank" rel="external">这篇文章</a></p>
+<p>为了赶deadline，很多坑都没有细看怎么回事，直接跳过了。比如：</p>
+<ol>
+<li><p>需要用Ubuntu，我用的是<code>Linux ubuntu 4.10.0-28-generic #32~16.04.2-Ubuntu SMP Thu Jul 20 10:19:48 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</code>，第一次尝试用Kali Linux，同样的架构，但是出现了编译不通过的问题</p>
+</li>
+<li><p>环境变量的配置也比较恶心，按照上述文章的配置，编译看似通过，但是会有一个隐藏的error输出在一堆正常输出中间，不仔细看就略过了。产生的问题就是编译后的bin目录下只有一个gofmt可执行程序，而没有go程序。因此，环境变量的配置如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> GOOS=linux </div><div class="line"><span class="built_in">export</span> GOARCH=mips32le</div><div class="line"><span class="built_in">export</span> CGO_ENABLED=0</div></pre></td></tr></table></figure>
+<p>重要的是最后一行，应该是嵌入C语言的配置。</p>
+</li>
+</ol>
+<h1 id="0x03-过程"><a href="#0x03-过程" class="headerlink" title="0x03 过程"></a>0x03 过程</h1><p>直接摘抄jacle169的过程，但是填了我遇到坑。我配置时候的过程也差不多，除了GO项目放置的位置不一样。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//下载go-mips32源 </div><div class="line">git <span class="built_in">clone</span> https://github.com/gomini/go-mips32.git </div><div class="line"><span class="built_in">cd</span> go-mips32/src</div><div class="line">//配置GO编译参数 </div><div class="line"><span class="built_in">export</span> GOOS=linux </div><div class="line"><span class="built_in">export</span> GOARCH=mips32le &lt;== Change to mips32 <span class="keyword">if</span> mips</div><div class="line"><span class="built_in">export</span> CGO_ENABLED=0</div><div class="line">//执行编译</div><div class="line">./make.bash </div><div class="line"><span class="built_in">cd</span> ..</div><div class="line">//创建编译后文件存放文件夹 </div><div class="line">sudo mkdir /opt/mipsgo</div><div class="line">//复制 </div><div class="line">sudo cp -R * /opt/mipsgo</div><div class="line">//go工程参数配置 </div><div class="line"><span class="built_in">export</span> GOROOT=/opt/mipsgo </div><div class="line"><span class="built_in">export</span> PATH=/opt/mipsgo/bin:<span class="variable">$PATH</span></div><div class="line">3.编译go程序作为测试</div><div class="line">mkdir /opt/slu</div><div class="line"><span class="built_in">cd</span> /opt/slu</div><div class="line">vim main.go</div></pre></td></tr></table></figure>
+<p>main.go — helloworld源码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">       fmt.Println(<span class="string">"hello icoolpy.com"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其实配置GO编译参数的三行export可以在终端显式运行，也就是在进行源码编译时：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GOOS=linux GOARCH=mips32le CGO_ENABLED=0 ./make.bash</div></pre></td></tr></table></figure>
+<p>#0x04 测试</p>
+<p><img src="/img/2018/02/go-mips32-test.png" alt=""></p>
+]]></content>
+        
+        <categories>
+            
+            <category> Programing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Golang </tag>
+            
+            <tag> mips </tag>
+            
+            <tag> mips32le </tag>
+            
+            <tag> ramips </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
         <title><![CDATA[zsh的坑]]></title>
         <url>http://yoursite.com/2017/09/06/2017/zsh_no_match_found-09-06/</url>
         <content type="html"><![CDATA[<h2 id="深夜发牢骚"><a href="#深夜发牢骚" class="headerlink" title="深夜发牢骚"></a>深夜发牢骚</h2><p><img src="/img/2017/09/zsh/1.png" alt=""></p>
@@ -355,9 +402,9 @@
         
         <tags>
             
-            <tag> SEH </tag>
-            
             <tag> 二进制 </tag>
+            
+            <tag> SEH </tag>
             
         </tags>
         
