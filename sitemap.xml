@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/22/2018/Heap/</loc>
+    
+    <lastmod>2018-05-22T16:09:06.474Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/17/2018/WebAssembly/</loc>
     
     <lastmod>2018-05-17T08:04:08.263Z</lastmod>

@@ -20,7 +20,7 @@
 <meta name="verify" content=all />
     <!--Title-->
 
-<title>標籤: Web前端 | Zebork&#39;s Blog</title>
+<title>对堆的认识 | Zebork&#39;s Blog</title>
 
 <link rel="alternate" href="/atom.xml" title="Zebork&#39;s Blog" type="application/atom+xml">
 
@@ -29,16 +29,34 @@
 
     
 <link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/pages/archive.css">
+<link rel="stylesheet" href="/css/pages/post.css">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/thirdParty/highlight/github.css">
+<link rel="stylesheet" href="/css/pages/comments.css">
 
     <!--script-->
 
 
 
-<!--<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!--<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>-->
 
+
+<script src="/js/thirdParty/gitment.browser.min.js"></script>
+<script>
+  var labels = "blog";
+  labels = labels.split(",");
+  var gitment = new Gitment({
+    id: window.location.pathname,
+    owner: "Zebork",
+    repo: "Zebork.github.io",
+    oauth: {
+      client_id: "6ea52b5b58733d713961",
+      client_secret: "b49461cb90fbbe718bacfa6c8f658300025614be"
+    },
+    perPage: "20",
+    labels: labels
+  });
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
     
     
@@ -142,39 +160,120 @@
 
 
         <div id="main">
-    <div id="post-list">
-        <ul class="archives-post-list">
-            
-            <li class="post-items" _href="/2017/09/01/2016/浅谈Web前端僵尸网络/">
+    <article id="post">
+        <div id="post-header">
+
+            <h1 id="对堆的认识">
                 
-                <p class="info">Web前端</p>
-                <h2 class="post-item-title">浅谈Web前端僵尸网络</h2>
-                <div class="article-meta">
+                对堆的认识
+                
+            </h1>
+            <div class="article-meta">
     
     
     <span class="categories-meta fa-wrap">
             <i class="fa fa-folder-open-o"></i>
-        <span>Web</span>
+        <span>微型blog</span>
     </span>
     
+    
+    <span class="fa-wrap">
+         <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            heap
+            
+        </span>
+    </span>
     
     
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
-        <span class="date-meta ">2017/09/01</span>
+        <span class="date-meta ">2018/05/22</span>
     </span>
     
     
     
 </div>
 
-            </li>
             
-        </ul>
+            
+        </div>
+        
+        <div id="post-body">
+            <h1 id="0x00-缘起"><a href="#0x00-缘起" class="headerlink" title="0x00 缘起"></a>0x00 缘起</h1><p>刚学二进制的时候，对堆没什么概念，就知道是内存，什么都不懂的时候倒没有什么。好好学了Linux操作系统之后，知道了物理内存，虚拟内存，内存分页，操作系统对内存的分配等等。此时突然想到了当时没看懂的堆溢出攻击，今天也看了一些书，都说是由操作系统进行管理的，还以为堆对物理内存中的东西。</p>
+<p>然而看了看堆溢出攻击的原理，可以构造一个数据结构，让操作系统认为这个是堆块，也可以覆盖堆块。重要的是在线性内存（虚拟地址）中，可以看到堆的数据结构。</p>
+<h1 id="0x01-思考"><a href="#0x01-思考" class="headerlink" title="0x01 思考"></a>0x01 思考</h1><p>虽然堆的分配，合并等过程，完全是由操作系统完成的，但是每个进程的堆的的确确是用线性地址进行组织的。所以可以从调试器中看到堆块，块链表等数据结构。</p>
+<p>那为什么Linux Windows都有堆这种数据结构呢？虽然一时解释不出来，但是我觉得按块分配内存，对于高级编程来说应该是很重要的。</p>
+<h1 id="0x02-类比"><a href="#0x02-类比" class="headerlink" title="0x02 类比"></a>0x02 类比</h1><p>堆的双向链表很容易让人联想到的数据结构是操作系统内核的缓冲区。想来堆和缓冲区的思路有一部分是重合的，缓冲区是在实实在在的物理内存中，或者说是内核的地址空间，而堆是在进程的线性地址空间，层次不同。另外缓冲区是要尽量多地占用（尽可能驻留内存），像Mac OS的方式就是将几乎所有空闲物理内存作为缓冲区，以增强性能（文件、软件打开速度）；而堆块不用了要赶紧free掉（否则内存泄漏），理念也不同。</p>
+
+        </div>
+        <div id="post-footer">
+            <div class="avatar" >
+                <img src="/img/jay_chou.jpg" alt="avatar"/>
+                
+                
+            </div>
+            <ul class="author-profile-section">
+                <li>
+                  
+                  作者:
+                  
+                    
+                    <a href="/about.html">Zebork</a>
+                </li>
+                
+                <li>發表日期: <span>2018-05-22  11:40:20</span></li>
+                
+                <li>最後編輯日期: <span>2018-05-23  12:09:06</span></li>
+                
+                <li class="post-category">
+                    文章分類:
+                    
+                    <a href="/categories/微型blog/">微型blog</a>
+                    
+                </li>
+                <li class="post-tags">
+                    文章標簽:
+                    
+                    <a href="/tags/heap/">heap</a>
+                    
+                    <a href="/tags/堆/">堆</a>
+                    
+                </li>
+                
+            </ul>
+            <div id="donate-wrap">
+                
+                
+                
+                <img src="http://example.com/alipay.jpg" alt="支付宝付款" class="donate-img">
+                
+                <img src="http://example.com/wechat.png" alt="微信付款" class="donate-img">
+                
+                
+            </div>
+        </div>
+    </article>
+    <div class="article-nav">
+        
+        
+        <a href="/2018/05/17/2018/WebAssembly/" class="next-post fa">使用WebAssembly来加速Web</a>
+        
     </div>
+    
+    <div id="comments">
+        
+
+<script>
+  gitment.render(document.getElementById("comments"));
+</script>
+
+
+
+    </div>
+    
 </div>
-
-
 
 
     </div>
@@ -204,8 +303,14 @@
     <li class="totop-btn fa fa-angle-up"></li>
     <li class="exchange-btn fa fa-exchange"></li>
   
+    <li class="toc-btn fa fa-list-ul"></li>
+    
     
 
+    
+    <li class="comment-btn fa fa-comments-o">
+        <a href="#comments" title="comments"></a>
+    </li>
     
 </ul>
 <p id="process"></p>
@@ -223,6 +328,8 @@
         </div>
     </div>
 </div>
+
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00-缘起"><span class="toc-number">1.</span> <span class="toc-text">0x00 缘起</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x01-思考"><span class="toc-number">2.</span> <span class="toc-text">0x01 思考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x02-类比"><span class="toc-number">3.</span> <span class="toc-text">0x02 类比</span></a></li></ol>
 
 
 

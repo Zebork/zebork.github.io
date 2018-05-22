@@ -3,6 +3,33 @@
     
     
     <entry>
+        <title><![CDATA[对堆的认识]]></title>
+        <url>http://yoursite.com/2018/05/22/2018/Heap/</url>
+        <content type="html"><![CDATA[<h1 id="0x00-缘起"><a href="#0x00-缘起" class="headerlink" title="0x00 缘起"></a>0x00 缘起</h1><p>刚学二进制的时候，对堆没什么概念，就知道是内存，什么都不懂的时候倒没有什么。好好学了Linux操作系统之后，知道了物理内存，虚拟内存，内存分页，操作系统对内存的分配等等。此时突然想到了当时没看懂的堆溢出攻击，今天也看了一些书，都说是由操作系统进行管理的，还以为堆对物理内存中的东西。</p>
+<p>然而看了看堆溢出攻击的原理，可以构造一个数据结构，让操作系统认为这个是堆块，也可以覆盖堆块。重要的是在线性内存（虚拟地址）中，可以看到堆的数据结构。</p>
+<h1 id="0x01-思考"><a href="#0x01-思考" class="headerlink" title="0x01 思考"></a>0x01 思考</h1><p>虽然堆的分配，合并等过程，完全是由操作系统完成的，但是每个进程的堆的的确确是用线性地址进行组织的。所以可以从调试器中看到堆块，块链表等数据结构。</p>
+<p>那为什么Linux Windows都有堆这种数据结构呢？虽然一时解释不出来，但是我觉得按块分配内存，对于高级编程来说应该是很重要的。</p>
+<h1 id="0x02-类比"><a href="#0x02-类比" class="headerlink" title="0x02 类比"></a>0x02 类比</h1><p>堆的双向链表很容易让人联想到的数据结构是操作系统内核的缓冲区。想来堆和缓冲区的思路有一部分是重合的，缓冲区是在实实在在的物理内存中，或者说是内核的地址空间，而堆是在进程的线性地址空间，层次不同。另外缓冲区是要尽量多地占用（尽可能驻留内存），像Mac OS的方式就是将几乎所有空闲物理内存作为缓冲区，以增强性能（文件、软件打开速度）；而堆块不用了要赶紧free掉（否则内存泄漏），理念也不同。</p>
+]]></content>
+        
+        <categories>
+            
+            <category> 微型blog </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> heap </tag>
+            
+            <tag> 堆 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
         <title><![CDATA[使用WebAssembly来加速Web]]></title>
         <url>http://yoursite.com/2018/05/17/2018/WebAssembly/</url>
         <content type="html"><![CDATA[<h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><h4 id="原文作者：Andreas-Haas等-Google-Dan-Gohman等-Mozilla-Michael-Holman-Microsoft-JF-Bastien-Apple"><a href="#原文作者：Andreas-Haas等-Google-Dan-Gohman等-Mozilla-Michael-Holman-Microsoft-JF-Bastien-Apple" class="headerlink" title="原文作者：Andreas Haas等 (Google), Dan Gohman等(Mozilla), Michael Holman(Microsoft),JF Bastien(Apple)"></a>原文作者：Andreas Haas等 (Google), Dan Gohman等(Mozilla), Michael Holman(Microsoft),JF Bastien(Apple)</h4><h4 id="原文标题：Bringing-the-Web-up-to-Speedwith-WebAssembly"><a href="#原文标题：Bringing-the-Web-up-to-Speedwith-WebAssembly" class="headerlink" title="原文标题：Bringing the Web up to Speedwith WebAssembly"></a>原文标题：Bringing the Web up to Speedwith WebAssembly</h4><h4 id="原文会议：PLDI-2017"><a href="#原文会议：PLDI-2017" class="headerlink" title="原文会议：PLDI 2017"></a>原文会议：PLDI 2017</h4><h4 id="原文链接：https-pldi17-sigplan-org-event-pldi-2017-papers-bringing-the-web-up-to-speed-with-webassembly"><a href="#原文链接：https-pldi17-sigplan-org-event-pldi-2017-papers-bringing-the-web-up-to-speed-with-webassembly" class="headerlink" title="原文链接：https://pldi17.sigplan.org/event/pldi-2017-papers-bringing-the-web-up-to-speed-with-webassembly"></a>原文链接：<a href="https://pldi17.sigplan.org/event/pldi-2017-papers-bringing-the-web-up-to-speed-with-webassembly" target="_blank" rel="external">https://pldi17.sigplan.org/event/pldi-2017-papers-bringing-the-web-up-to-speed-with-webassembly</a></h4><h4 id="可下载链接：https-dl-acm-org-citation-cfm-id-3062363"><a href="#可下载链接：https-dl-acm-org-citation-cfm-id-3062363" class="headerlink" title="可下载链接：https://dl.acm.org/citation.cfm?id=3062363"></a>可下载链接：<a href="https://dl.acm.org/citation.cfm?id=3062363" target="_blank" rel="external">https://dl.acm.org/citation.cfm?id=3062363</a></h4><p>Web平台的成熟引发了复杂和性能要求苛刻的Web应用程序，如交互式3D可视化，音频和视频软件以及游戏。因此，Web平台上代码的高效性和安全性变得越来越重要。然而，JavaScript作为Web平台（浏览器）唯一内置的语言，并不能很好地满足上述需求。</p>
@@ -483,9 +510,9 @@
         
         <tags>
             
-            <tag> 二进制 </tag>
-            
             <tag> SEH </tag>
+            
+            <tag> 二进制 </tag>
             
         </tags>
         
